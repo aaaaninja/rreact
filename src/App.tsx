@@ -3,6 +3,12 @@ import logo from 'logo.svg';
 import 'App.css';
 
 function App() {
+  const opts = {
+    className: "App-link",
+    href: "https://reactjs.org",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -11,12 +17,7 @@ function App() {
           Edit <code>src/App.tsx</code> and save to reload.<br />
           こんにちはこんにちは！！hoge
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a {...opts}>
           Learn React
         </a>
       </header>
