@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, SyntheticEvent } from 'react';
 import { Button, Card, Statistic } from 'semantic-ui-react';
 
 import './App.css';
@@ -13,17 +13,15 @@ class App extends Component<{}, AppState> {
     this.state = { count: 0 };
   }
 
-  increment() {
-    this.setState(prevState => ({
-      count: prevState.count + 1,
-    }));
-  }
+  increment = (e: SyntheticEvent) => {
+    e.preventDefault();
+    this.setState(prevState => ({ count: prevState.count + 1 }));
+  };
 
-  decrement() {
-    this.setState(prevState => ({
-      count: prevState.count - 1,
-    }));
-  }
+  decrement = (e: SyntheticEvent) => {
+    e.preventDefault();
+    this.setState(prevState => ({ count: prevState.count - 1 }));
+  };
 
   render() {
     const { count } = this.state;
@@ -40,10 +38,10 @@ class App extends Component<{}, AppState> {
           </Statistic>
           <Card.Content>
             <div className="ui two buttons">
-              <Button color="red" onClick={() => this.decrement()}>
+              <Button color="red" onClick={this.decrement}>
                 -1
               </Button>
-              <Button color="green" onClick={() => this.increment()}>
+              <Button color="green" onClick={this.increment}>
                 +1
               </Button>
             </div>
