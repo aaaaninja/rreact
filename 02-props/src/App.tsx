@@ -1,68 +1,37 @@
-import React, { Component } from 'react';
-import { Button, Card, Icon, Statistic } from 'semantic-ui-react';
+import React, { FC } from 'react';
+import CharacterList, { Character } from './CharacterList';
 
 import './App.css';
 
-const LIMIT = 60;
+const App: FC<{}> = () => {
+  const characters: Character[] = [
+    {
+      id: 1,
+      name: '羽咲 綾乃',
+      age: 16,
+      height: 151,
+    },
+    {
+      id: 2,
+      name: '荒垣 なぎさ',
+      age: 18,
+      height: 174,
+    },
+    {
+      id: 3,
+      name: '泉 理子',
+      age: 18,
+    },
+  ];
 
-interface AppState {
-  timeLeft: number;
-}
-
-class App extends Component<{}, AppState> {
-  timerId?: NodeJS.Timer;
-
-  constructor(props: {}) {
-    super(props);
-    this.state = { timeLeft: LIMIT };
-  }
-
-  reset = () => {
-    this.setState({ timeLeft: LIMIT });
-  };
-
-  tick = () => {
-    this.setState(prevState => ({ timeLeft: prevState.timeLeft - 1 }));
-  };
-
-  componentDidMount = () => {
-    this.timerId = setInterval(this.tick, 1000);
-  };
-
-  componentDidUpdate = () => {
-    const { timeLeft } = this.state;
-    if (timeLeft === 0) {
-      this.reset();
-    }
-  };
-
-  componentWillUnmount = () => {
-    clearInterval(this.timerId as NodeJS.Timer);
-  };
-
-  render() {
-    const { timeLeft } = this.state;
-
-    return (
-      <div className="container">
-        <header>
-          <h1>タイマー</h1>
-        </header>
-        <Card>
-          <Statistic className="number-board">
-            <Statistic.Label>time</Statistic.Label>
-            <Statistic.Value>{timeLeft}</Statistic.Value>
-          </Statistic>
-          <Card.Content>
-            <Button color="red" fluid onClick={this.reset}>
-              <Icon name="redo" />
-              Reset
-            </Button>
-          </Card.Content>
-        </Card>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      <header>
+        <h1>はねバド！ キャラクター一覧</h1>
+      </header>
+      <CharacterList school="北小町高校" characters={characters} />
+    </div>
+  );
+};
 
 export default App;
