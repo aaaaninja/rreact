@@ -29,7 +29,7 @@ class CharacterList extends Component<CharacterListProps> {
                 <Item.Header>{c.name}</Item.Header>
                 <Item.Meta>{c.age}歳</Item.Meta>
                 <Item.Meta>
-                  {c.height ? c.height : '???'}
+                  {c.height || '???'}
                   cm
                 </Item.Meta>
               </Item.Content>
