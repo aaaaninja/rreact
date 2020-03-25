@@ -1,18 +1,17 @@
 import React, { FC } from 'react';
-import { Redirect, Route, Switch } from 'react-router';
 
-import Home from './components/Home';
-import Characters from './components/Characters';
+import ColorfulBeads from './containers/ColorfulBeads';
+import Counter from './containers/Counter';
 
 import './App.css';
 
-const App: FC<{}> = () => (
+const App: FC = () => (
   <div className="container">
-    <Switch>
-      <Route path="/characters/:code" component={Characters} />
-      <Route path="/" component={Home} />
-      <Redirect to="/" />;
-    </Switch>
+    <header>
+      <h1>ビーズカウンター</h1>
+    </header>
+    <Counter />
+    <ColorfulBeads />
   </div>
 );
 
