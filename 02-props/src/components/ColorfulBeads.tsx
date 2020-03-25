@@ -3,7 +3,7 @@ import { Container, Label, SemanticCOLORS } from 'semantic-ui-react';
 
 import './ColorfulBeads.css';
 
-const range = (n: number) => (n < 0 ? [] : Array.from(Array(n), (_, i) => i));
+const range = (n: number) => (n < 0 ? [] : [...Array(n)].map((_, i) => i));
 const colors: SemanticCOLORS[] = [
   'red',
   'orange',
