@@ -6,7 +6,7 @@
   "editor.codeActionsOnSaveTimeout": 2000,
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
-  "editor.wordWrap": "on",
+  "editor.wordWrap": "off",
   "eslint.enable": true,
   "eslint.packageManager": "yarn",
   "files.insertFinalNewline": true,
