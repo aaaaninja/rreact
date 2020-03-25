@@ -3,6 +3,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "workbench.colorTheme": "Lilac",
   "editor.codeActionsOnSaveTimeout": 2000,
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
