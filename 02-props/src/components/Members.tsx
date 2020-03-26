@@ -15,7 +15,7 @@ export interface MembersProps {
 }
 
 const Members: FC<MembersProps> = ({
-  companyName = '<会社名>',
+  companyName = '<会社名abab>',
   users = [],
   isLoading = false,
 }) => {

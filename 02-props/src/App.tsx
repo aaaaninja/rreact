@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Redirect, Route, Switch } from 'react-router';
 
 import Home from './components/Home';
-import Members from './containers/Members';
+import Members from './components/Members';
 
 import './App.css';
 
