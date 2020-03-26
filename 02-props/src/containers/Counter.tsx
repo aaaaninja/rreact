@@ -9,16 +9,16 @@ interface StateProps {
   count: number;
 }
 
+const mapStateToProps = (state: CounterState): StateProps => ({
+  count: state.count,
+});
+
 interface DispatchProps {
   add: (amount: number) => void;
   del: (amount: number) => void;
   decrement: () => void;
   increment: () => void;
 }
-
-const mapStateToProps = (state: CounterState): StateProps => ({
-  count: state.count,
-});
 
 const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => ({
   add: amount => dispatch(add(amount)),
