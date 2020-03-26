@@ -1,5 +1,6 @@
 import { Reducer } from 'redux';
-import { CounterAction, CounterActionType } from './actions/counter';
+
+import { CounterAction, ADD, DECREMENT, INCREMENT } from './actions/counter';
 
 export interface CounterState {
   count: number;
@@ -12,29 +13,24 @@ const counterReducer: Reducer<CounterState, CounterAction> = (
   action: CounterAction,
 ): CounterState => {
   switch (action.type) {
-    case CounterActionType.ADD:
+    case ADD:
       return {
         ...state,
-        count: state.count + (action.amount || 0),
+        count: state.count + action.payload.amount,
       };
-    case CounterActionType.DEL:
-      return {
-        ...state,
-        count: state.count - (action.amount || 0),
-      };
-    case CounterActionType.DECREMENT:
+    case DECREMENT:
       return {
         ...state,
         count: state.count - 1,
       };
-    case CounterActionType.INCREMENT:
+    case INCREMENT:
       return {
         ...state,
         count: state.count + 1,
       };
     default: {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const _: never = action.type;
+      const _: never = action;
 
       return state;
     }
