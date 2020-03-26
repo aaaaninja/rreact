@@ -17,6 +17,11 @@ const counterReducer: Reducer<CounterState, CounterAction> = (
         ...state,
         count: state.count + (action.amount || 0),
       };
+    case CounterActionType.DEL:
+      return {
+        ...state,
+        count: state.count - (action.amount || 0),
+      };
     case CounterActionType.DECREMENT:
       return {
         ...state,
